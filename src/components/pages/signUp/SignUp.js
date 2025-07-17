@@ -1,17 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Navbar } from "../../layout/navbar/Navbar";
 import Header from "../../layout/header/Header";
 import styles from "./SignUp.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
-import { auth, app } from "../../fireBaseConfig/FireBaseConfig";
-import { db } from "../../fireBaseConfig/FireBaseConfig";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, setDoc } from "firebase/firestore";
-
-// Twilio configuration (you'll need to set these up)
-const TWILIO_ACCOUNT_SID = 'your_twilio_account_sid';
-const TWILIO_AUTH_TOKEN = 'your_twilio_auth_token';
-const TWILIO_PHONE_NUMBER = 'your_twilio_phone_number';
 
 // Backend API endpoints
 const SMS_API_ENDPOINT = 'http://localhost:5000/api/send-sms';
@@ -37,7 +31,6 @@ const SignUpForm = ({ userType }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [emailVerificationSent, setEmailVerificationSent] = useState(false);
-  const [emailVerified, setEmailVerified] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
   const [phoneVerified, setPhoneVerified] = useState(false);
@@ -295,7 +288,6 @@ const SignUpForm = ({ userType }) => {
       // Reload user to get latest verification status
       await userCredential.user.reload();
       const isVerified = userCredential.user.emailVerified;
-      setEmailVerified(isVerified);
       return isVerified;
     } catch (error) {
       console.error("Error checking email verification:", error);

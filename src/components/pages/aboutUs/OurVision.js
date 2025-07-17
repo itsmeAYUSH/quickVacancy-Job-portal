@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./OurVision.module.css";
 import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
@@ -12,11 +12,6 @@ export const OurVision = () => {
   };
   const handleBackClick = () => {
     handleNavigation("/");
-  };
-  const [page, setPage] = useState(1);
-
-  const handlePageChange = (event, value) => {
-    setPage(value);
   };
   return (
     <div

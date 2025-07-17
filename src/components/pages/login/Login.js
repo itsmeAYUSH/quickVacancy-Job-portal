@@ -28,7 +28,6 @@ const LoginForm = ({ userType }) => {
   // Email OTP states
   const [emailOtpSent, setEmailOtpSent] = useState(false);
   const [emailOtp, setEmailOtp] = useState("");
-  const [emailOtpVerified, setEmailOtpVerified] = useState(false);
 
   const sendEmailOtp = async (emailAddress) => {
     try {
@@ -176,8 +175,6 @@ const LoginForm = ({ userType }) => {
       const verified = await verifyEmailOtp(currentUser.email, emailOtp);
       
       if (verified) {
-        setEmailOtpVerified(true);
-        
         // Update Firestore with verified status
         const collectionName = userType === "employer" ? "employerDB" : "employeeDB";
         await setDoc(doc(db, collectionName, currentUser.uid), {

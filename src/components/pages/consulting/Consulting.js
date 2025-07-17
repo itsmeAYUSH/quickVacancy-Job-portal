@@ -97,7 +97,6 @@ export const Consulting = () => {
                 justifyContent: "center",
                 height: "100%",
                 transition: "background-color 0.3s, color 0.3s",
-                height: "50px !important",
                 cursor: "pointer",
               }}
             >
@@ -145,7 +144,6 @@ export const Consulting = () => {
                 justifyContent: "center",
                 height: "100%",
                 transition: "background-color 0.3s, color 0.3s",
-                height: "50px !important",
                 cursor: "pointer",
               }}
             >
@@ -189,7 +187,6 @@ export const Consulting = () => {
                 justifyContent: "center",
                 height: "100%",
                 transition: "background-color 0.3s, color 0.3s",
-                height: "50px !important",
                 cursor: "pointer",
               }}
             >
@@ -234,7 +231,6 @@ export const Consulting = () => {
                 justifyContent: "center",
                 height: "100%",
                 transition: "background-color 0.3s, color 0.3s",
-                height: "50px !important",
                 cursor: "pointer",
               }}
             >
@@ -282,7 +278,6 @@ export const Consulting = () => {
                 justifyContent: "center",
                 height: "100%",
                 transition: "background-color 0.3s, color 0.3s",
-                height: "50px !important",
                 cursor: "pointer",
               }}
             >

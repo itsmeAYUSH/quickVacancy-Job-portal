@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 import styles from "./Jobs.module.css";
 
 export const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  // Remove: const navigate = useNavigate();
 
   const fetchJobs = async () => {
     setLoading(true);
