@@ -1,0 +1,65 @@
+.jobContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height for vertical centering */
+    background-color: #f0f4fa;
+  }
+  
+  .tableContainer {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 1000px;
+  }
+  
+.title{
+    color: #0D4470;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .filterOptions {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #0D4470;
+    color: white;
+    text-align: center;
+  }
+  
+  .table td {
+    text-align: center;
+    color: #0D4470;
+  }
+  
+  .editButton, .closeButton, .repostButton {
+    background-color: #0D4470;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .repostButton {
+    background-color: #F36E0D;
+  }
+  

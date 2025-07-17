@@ -1,0 +1,16 @@
+.dashboardContainer {
+    position: relative; /* Ensure that it has its own stacking context */
+    z-index: 1; /* Base z-index to avoid being on top of navbar items */
+  }
+  
+  .mainContent {
+    margin-left: 60px; /* Adjust main content to not overlap with the sidenav */
+    /* padding: 20px; */
+    background-color: white; /* Example background color */
+    min-height: 100vh; /* Ensures the content takes up the full height of the viewport */
+    position: relative; /* Ensure it's within its stacking context */
+    z-index: 0; /* Content should stay behind the sidebar */
+  }
+  .header{
+    background-color: pink !important;
+  }

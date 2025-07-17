@@ -1,0 +1,310 @@
+/* Container for signup form */
+.signupContainer {
+  background-color: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+/* Title styling */
+.signupTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0d4470;
+  margin-bottom: 20px;
+  margin-top: 130px;
+}
+
+/* Form layout */
+.signupForm {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row for grouping input fields */
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Each form group (label + input) */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #0d4470;
+}
+
+.formGroup input,
+.formGroup select {
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  border-color: #0d4470;
+}
+
+/* Button styling */
+.postJobButton {
+  width: 150px;
+  padding: 12px;
+  background-color: #0d4470;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 20px;
+}
+
+.postJobButton:hover {
+  background-color: #3b8fd1;
+}
+
+/* Button styling for toggling between employee and employer signup */
+.toggleButton {
+  width: 300px; /* Adjusted width to make it more prominent */
+  padding: 12px;
+  background-color: #0d4470;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 20px;
+  margin-bottom: 10px; /* Space below the button */
+}
+
+.toggleButton:hover {
+  background-color: #3b8fd1;
+}
+
+/* Email verification container - Enhanced UI */
+.verificationContainer {
+  text-align: center;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  border: 2px solid #dee2e6;
+  margin: 30px 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.verificationContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0d4470, #3b8fd1, #0d4470);
+}
+
+.verificationContainer h3 {
+  color: #0d4470;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.verificationContainer h3::before {
+  content: '📧';
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.verificationContainer p {
+  color: #495057;
+  margin-bottom: 15px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+.verificationContainer strong {
+  color: #0d4470;
+  font-weight: 700;
+  background: linear-gradient(45deg, #0d4470, #3b8fd1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.verificationButtons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.verifyButton {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  min-width: 180px;
+}
+
+.verifyButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(135deg, #20c997, #28a745);
+}
+
+.verifyButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.resendButton {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  min-width: 180px;
+}
+
+.resendButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  background: linear-gradient(135deg, #0056b3, #007bff);
+}
+
+.resendButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.verificationInfo {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  border-left: 4px solid #0d4470;
+}
+
+.verificationInfo p {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.verificationInfo p::before {
+  content: '💡';
+  font-size: 1.2rem;
+}
+
+/* Error message styling */
+.error {
+  color: #dc3545;
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  border: 1px solid #f5c6cb;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(220, 53, 69, 0.1);
+}
+
+/* Success message styling */
+.success {
+  color: #155724;
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border: 1px solid #c3e6cb;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(21, 87, 36, 0.1);
+}
+
+/* Loading animation */
+.loadingSpinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .verificationContainer {
+    padding: 25px 20px;
+    margin: 20px 0;
+  }
+  
+  .verificationContainer h3 {
+    font-size: 1.5rem;
+  }
+  
+  .verificationContainer h3::before {
+    font-size: 2.5rem;
+  }
+  
+  .verificationButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .verifyButton,
+  .resendButton {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .verificationContainer p {
+    font-size: 1rem;
+  }
+}

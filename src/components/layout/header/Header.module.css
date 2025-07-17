@@ -1,0 +1,112 @@
+/* .header {
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  z-index: 400;
+  backdrop-filter: blur(40px);
+}
+
+.logo_image {
+  height: 15vh;
+}
+
+.part {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 50px; 
+  margin-top: -20px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialsIcon {
+  padding: 0 3px;
+}
+
+.socialButtons {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.login {
+  padding: 2px 30px;
+}
+
+.enquire {
+  padding: 2px 12px;
+}
+
+.login,
+.enquire {
+  border-radius: 5px;
+  background-color: #ffffff;
+
+  border: none;
+  cursor: pointer;
+} */
+
+/*  */
+.header {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  height: 80px; /* Set a small height for the navbar */
+  padding: 0 20px; /* Horizontal padding */
+  /* background-color: rgba(255, 255, 255, 0.5); Semi-transparent background for the frosted effect */
+  backdrop-filter: blur(40px); /* Apply blur effect */
+  position: fixed; /* Fix the header at the top */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  right: 0; /* Position at the right */
+  z-index: 1000; /* Ensure the header is above other content */
+}
+
+.logo_image {
+  max-height: 70px; /* Set a max height for the logo */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.socials {
+  position: absolute; /* Positioning at the bottom left */
+  bottom: 10px; /* Distance from the bottom */
+  left: 20px; /* Distance from the left */
+  display: flex; /* Flexbox for social icons */
+  gap: 10px; /* Space between icons */
+}
+
+.socialsIcon {
+  width: 25px; /* Set a fixed width for icons */
+  height: 25px; /* Set a fixed height for icons */
+}
+
+.socialButtons {
+  position: absolute; /* Positioning at the bottom right */
+  bottom: 10px; /* Distance from the bottom */
+  right: 20px; /* Distance from the right */
+  display: flex; /* Flexbox for buttons */
+  gap: 10px; /* Space between buttons */
+}
+
+.login,
+.enquire {
+  padding: 5px 10px; /* Smaller padding for buttons */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 14px; /* Adjust font size */
+}
+
+.login,
+.enquire {
+  border-radius: 5px;
+  background-color: #ffffff;
+
+  border: none;
+  cursor: pointer;
+}

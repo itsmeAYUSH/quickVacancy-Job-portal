@@ -1,0 +1,35 @@
+.header {
+  /* margin-top: 31px; */
+  border-bottom: 1px solid #ffffff;
+}
+
+.moreOptions {
+  text-align: center;
+  color: white;
+  margin-top: 100px;
+}
+.optionButton {
+  padding: 0;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 0;
+  text-shadow: 0;
+  cursor: pointer; /* Optional: adds a pointer cursor */
+  transition: transform 0.1s ease; /* Smooth transition */
+}
+.content {
+  padding: 10%;
+  padding-bottom: 0px;
+  color: #0D4470;
+  padding-top: 150px;
+
+}
+.backButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #0d4470;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.content {
+  padding: 10%;
+  padding-bottom: 0px;
+  color: #04310e;
+  padding-top: 200px;
+}
+.aboutUsIcons {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+}
+.backButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #04310e;
+  cursor: pointer;
+}

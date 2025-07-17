@@ -1,0 +1,132 @@
+.postJobContainer {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  min-height: 100vh; /* Full viewport height */
+  background-color: #f7faff; /* Light background color */
+  padding: 20px;
+  margin-top: 100px;
+}
+
+.title {
+  color: #0d4470;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  /* width: 100%; */
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+select {
+  /* width: 100%; */
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+input[type="number"] {
+  max-width: 300px; /* Adjusted size for phone number */
+}
+
+input[type="number"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: #0d4470;
+  outline: none;
+}
+
+select {
+  appearance: none;
+  background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='%230d4470' d='M6 8l4 4 4-4H6z'/%3e%3c/svg%3e")
+    no-repeat right 10px center;
+  background-size: 12px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.radioGroup label {
+  font-size: 14px;
+  color: #333;
+}
+
+.radioGroup input {
+  margin-right: 8px;
+}
+
+.submitButton {
+  background-color: #f36e0d;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #dfcc21;
+}
+
+.error {
+  color: #d32f2f;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.success {
+  color: #388e3c;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}

@@ -1,0 +1,46 @@
+.header {
+  /* margin-top: 31px; */
+  border-bottom: 1px solid #ffffff;
+}
+
+.moreOptions {
+  text-align: center;
+  color: #04310e;
+  margin-top: 100px;
+  cursor: pointer;
+}
+.optionButton {
+  padding: 0;
+  margin-top: 10px;
+  color: #04310e;
+  background-color: #04310e;
+
+  background-color: transparent;
+  border: 0;
+  text-shadow: 0;
+  cursor: pointer; /* Optional: adds a pointer cursor */
+  transition: transform 0.1s ease; /* Smooth transition */
+}
+.content {
+  padding: 10%;
+  padding-bottom: 0px;
+  color: #04310e;
+  padding-top: 200px;
+}
+
+/* Bounce effect on hover */
+.optionButton:hover {
+  animation: bounce 0.6s ease;
+}
+
+/* Keyframes for bounce effect */
+@keyframes bounce {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(+5px); /* Adjust the bounce height */
+  }
+}

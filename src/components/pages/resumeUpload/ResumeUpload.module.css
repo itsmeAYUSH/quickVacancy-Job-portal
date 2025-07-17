@@ -1,0 +1,212 @@
+.enterDetails {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dragAndDrop {
+  flex: 1;
+  padding: 20px;
+  border: 2px dashed #0d4470;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  margin-inline: 30px;
+  background-color: #f9f9f9; /* Light background for better visibility */
+}
+/* .dragAndDrop {
+  width: calc(50% - 70px); 
+  margin-inline: 15px;
+  box-sizing: border-box;
+} */
+
+
+.dragging {
+  border-color: #007bff;
+  background-color: #e9f5ff; /* Light blue background when dragging */
+}
+
+.fileInput {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.filePreview {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.verticalLine {
+  width: 2px;
+  background-color: #ddd;
+  height: 40vh;
+  margin: 40px 0 20px 0;
+  border-left: 2px solid black;
+}
+
+.credentials {
+  flex: 1;
+  width: 50%;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formRow {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputField {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  width: 250px;
+  padding: 8px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s, background-color 0.3s; /* Smooth transition for better UX */
+}
+
+.inputField:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  background-color: #f0f8ff; /* Light background when focused */
+}
+
+.inputField.error {
+  border-color: red; /* Red border for invalid input */
+  background-color: #ffe6e6; /* Light red background for error */
+}
+
+.uploadButton {
+  padding: 10px 20px;
+  background-color: #0d4470;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-start;
+  width: 250px;
+  transition: background-color 0.3s ease;
+}
+
+.uploadButton:hover {
+  background-color: #1976D2;
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  animation: shake 0.3s ease-in-out; /* Adds shake effect on error */
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.content {
+  padding-top: 30vh;
+  text-align: center;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 60vh;
+  width: 90vw;
+  margin: auto;
+  border-radius: 30px;
+}
+
+.title {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  margin: auto;
+  background: #0d4470;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 20px 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity 0.3s; /* Adds transition for hover effect */
+}
+
+.previewButton {
+  background-color: #0d4470;
+  color: white;
+}
+
+.removeButton {
+  background-color: #0d4470;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+.thankYouMessage {
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text inside the div */
+  height: 100%; /* Take up full height of the container */
+  width: 100%; /* Take up full width of the container */
+  max-width: 100%; /* Ensure it doesn't exceed the container's width */
+  padding: 20px; /* Adjust padding as needed */
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 20px; /* Optional border radius for rounded corners */
+  color: #0d4470;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+

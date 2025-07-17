@@ -1,0 +1,16 @@
+.content{
+    padding:10%; 
+    padding-bottom: 0px;
+    color: #0F7A27;
+    padding-top: 150px;
+
+}
+.backButton {
+    border: none;
+    background: transparent;
+  cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #0F7A27;
+    cursor: pointer;
+  }

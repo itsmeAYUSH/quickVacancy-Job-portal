@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex; /* Use flexbox to align items side by side */
+  align-items: center; /* Center items vertically */
+  padding: 40px;
+  /* max-width: 700px; */
+  max-width: 60vw;
+  margin: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+  border-radius: 20px; /* Optional: Rounds the corners */
+  background: #fefce6 !important; /* Background color */
+}
+
+.image {
+  width: 50%; /* Set the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  /* max-height: 300px; Optional: Set a max height for the image */
+  object-fit: cover; /* Ensure the image covers the area */
+  margin-right: 20px; /* Space between image and text */
+}
+
+.aboutUsText {
+  flex: 1; /* Allow text to take the remaining space */
+  text-align: left; /* Align text to the left */
+}
+
+.aboutUsTitle {
+  background: linear-gradient(to bottom, #0F7A27, #0F7A27);
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.content p {
+  color: #04310E; /* Text color */
+  line-height: 1.5; /* Improve readability */
+}

@@ -1,0 +1,54 @@
+.homeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4fa;
+  }
+  
+  .statsCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns content vertically within the card */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 800px;
+    min-height: 350px; /* Ensures the height is maintained */
+  }
+  
+  .statsText {
+    width: 50%;
+  }
+  
+  .statsText h2, .statsText h3 {
+    color: #1e3a8a;
+    font-weight: 700;
+  }
+  
+  .statsText ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .statsText ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #4b5563;
+  }
+  
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+  }
+  
+  .imageContainer img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+  }
+  

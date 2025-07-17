@@ -1,0 +1,47 @@
+.companyProfileContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for vertical centering */
+  background-color: #f0f4fa;
+}
+
+.formContainer {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 1000px;
+}
+
+.title {
+  color: #0d4470;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.formGroup input {
+  width: 48%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.saveButton {
+  background-color: #0d4470;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0 auto;
+}

@@ -1,0 +1,25 @@
+.content {
+  padding: 10%;
+  padding-bottom: 0px;
+  color: #0f7a27;
+  padding-top: 150px;
+}
+.sampleResume {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #0f7a27;
+  color: #ffffff;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+.backButton {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #0F7A27;
+  cursor: pointer;
+}

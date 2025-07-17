@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff; /* Optional: Change text color */
+  }
+  
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds space between the two rows of buttons */
+    margin-top: 20px; /* Adds space from the top of the container */
+    justify-content: center;
+    align-items: center; /* Center the button rows horizontally */
+  }
+  
+  .buttonRow {
+    display: flex;
+    gap: 10px; /* Adds space between buttons and separators */
+  }
+  
+  .buttonRow button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .separator {
+    margin: 0 10px;
+    color: #fff; /* Color of the separator */
+  }
+  
