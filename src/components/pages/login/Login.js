@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Login.module.css";
 import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "firebase/auth";
 import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
@@ -16,6 +16,7 @@ export const LoginEmployee = () => <LoginForm userType="employee" />;
 export const LoginEmployer = () => <LoginForm userType="employer" />;
 
 const LoginForm = ({ userType }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -90,15 +91,7 @@ const LoginForm = ({ userType }) => {
         password
       );
       const user = userCredential.user;
-      
-      // Check if email is verified
-      if (!user.emailVerified) {
-        setCurrentUser(user);
-        setShowEmailVerification(true);
-        setLoading(false);
-        return;
-      }
-
+      // Remove email verification checks and always log in
       const collectionName = userType === "employer" ? "employerDB" : "employeeDB";
       const userDoc = await getDoc(doc(db, collectionName, user.uid));
       if (!userDoc.exists()) {
@@ -106,19 +99,10 @@ const LoginForm = ({ userType }) => {
         setLoading(false);
         return;
       }
-      
-      // Check if user data has emailVerified field and it's true
-      const userData = userDoc.data();
-      if (userData.emailVerified === false) {
-        setCurrentUser(user);
-        setShowEmailVerification(true);
-        setLoading(false);
-        return;
-      }
-      
       // Set the user as logged in
       localStorage.setItem("userId", user.uid);
       setIsLoggedIn(true);
+      navigate("/");
     } catch (error) {
       setErrorMessage(
         error.message.includes("user-not-found")
@@ -262,6 +246,7 @@ const LoginForm = ({ userType }) => {
       if (userDoc.exists()) {
         localStorage.setItem("userId", user.uid);
         setIsLoggedIn(true);
+        navigate("/");
       } else {
         // New Google user, prompt to confirm registration as this type
         if (!window.confirm(`No account found. Do you want to register as a ${userType}?`)) {
@@ -278,6 +263,7 @@ const LoginForm = ({ userType }) => {
         });
         localStorage.setItem("userId", user.uid);
         setIsLoggedIn(true);
+        navigate("/");
       }
     } catch (error) {
       setErrorMessage("Google sign-in failed. Please try again.");
@@ -299,13 +285,13 @@ const LoginForm = ({ userType }) => {
         <div className={styles.mainContent}>
           <div className={styles.imageContainer}>
             <img
-              src="./images/creative-people-working-office 1.png"
+              src="/images/creative-people-working-office 1.png"
               alt="Office team"
               className={styles.image}
             />
             <div className={styles.logoOverlay}>
               <img
-                src="./images/Quick-Vacancy-Consultancy-logo 3.png"
+                src="/images/Quick-Vacancy-Consultancy-logo 3.png"
                 alt="Logo"
                 className={styles.logo}
               />

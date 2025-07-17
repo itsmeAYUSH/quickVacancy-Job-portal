@@ -373,8 +373,8 @@ const SignUpForm = ({ userType }) => {
       await sendEmailVerification(user);
       console.log("Email verification sent");
       
-      setEmailVerificationSent(true);
-      // Don't set isLoggedIn to true yet - wait for email verification
+      setIsLoggedIn(true);
+      navigate("/");
     } catch (error) {
       console.error("Signup error:", error);
       
