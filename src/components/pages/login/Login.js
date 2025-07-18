@@ -24,7 +24,6 @@ const LoginForm = ({ userType }) => {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showEmailVerification, setShowEmailVerification] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
   
   // Email OTP states
   const [emailOtpSent, setEmailOtpSent] = useState(false);
@@ -115,7 +114,7 @@ const LoginForm = ({ userType }) => {
   };
 
   const handleSendEmailOtp = async () => {
-    if (!currentUser?.email) {
+    if (!email) {
       setErrorMessage("No email found. Please try logging in again.");
       return;
     }
@@ -124,11 +123,11 @@ const LoginForm = ({ userType }) => {
     setErrorMessage("");
 
     try {
-      const emailOtpSent = await sendEmailOtp(currentUser.email);
+      const emailOtpSent = await sendEmailOtp(email);
       
       if (emailOtpSent) {
         setEmailOtpSent(true);
-        alert(`Email OTP sent to ${currentUser.email}. Please check your inbox.`);
+        alert(`Email OTP sent to ${email}. Please check your inbox.`);
       } else {
         throw new Error('Failed to send email OTP');
       }
@@ -147,7 +146,7 @@ const LoginForm = ({ userType }) => {
       return;
     }
     
-    if (!currentUser?.email) {
+    if (!email) {
       setErrorMessage("No email found. Please try logging in again.");
       return;
     }
@@ -156,17 +155,17 @@ const LoginForm = ({ userType }) => {
     setErrorMessage("");
     
     try {
-      const verified = await verifyEmailOtp(currentUser.email, emailOtp);
+      const verified = await verifyEmailOtp(email, emailOtp);
       
       if (verified) {
         // Update Firestore with verified status
         const collectionName = userType === "employer" ? "employerDB" : "employeeDB";
-        await setDoc(doc(db, collectionName, currentUser.uid), {
+        await setDoc(doc(db, collectionName, email), {
           emailVerified: true
         }, { merge: true });
 
         // Set the user as logged in
-        localStorage.setItem("userId", currentUser.uid);
+        localStorage.setItem("userId", email);
         setIsLoggedIn(true);
       } else {
         setErrorMessage('Invalid email OTP. Please try again.');
@@ -180,7 +179,7 @@ const LoginForm = ({ userType }) => {
   };
 
   const handleResendEmailVerification = async () => {
-    if (!currentUser) {
+    if (!email) {
       setErrorMessage("No user found. Please try logging in again.");
       return;
     }
@@ -189,7 +188,7 @@ const LoginForm = ({ userType }) => {
     setErrorMessage("");
 
     try {
-      await sendEmailVerification(currentUser);
+      await sendEmailVerification(email);
       alert("Email verification sent! Please check your inbox.");
     } catch (error) {
       console.error("Error resending email verification:", error);
@@ -200,7 +199,7 @@ const LoginForm = ({ userType }) => {
   };
 
   const handleCheckEmailVerification = async () => {
-    if (!currentUser) {
+    if (!email) {
       setErrorMessage("No user found. Please try logging in again.");
       return;
     }
@@ -210,17 +209,17 @@ const LoginForm = ({ userType }) => {
 
     try {
       // Reload user to get latest verification status
-      await currentUser.reload();
+      await email.reload();
       
-      if (currentUser.emailVerified) {
+      if (email.emailVerified) {
         // Update Firestore with verified status
         const collectionName = userType === "employer" ? "employerDB" : "employeeDB";
-        await setDoc(doc(db, collectionName, currentUser.uid), {
+        await setDoc(doc(db, collectionName, email.uid), {
           emailVerified: true
         }, { merge: true });
 
         // Set the user as logged in
-        localStorage.setItem("userId", currentUser.uid);
+        localStorage.setItem("userId", email.uid);
         setIsLoggedIn(true);
       } else {
         setErrorMessage("Email not verified yet. Please check your inbox and click the verification link.");
@@ -358,7 +357,7 @@ const LoginForm = ({ userType }) => {
             ) : (
               <div className={styles.verificationContainer}>
                 <h3>Email Verification Required</h3>
-                <p>Your email address <strong>{currentUser?.email}</strong> needs to be verified before you can log in.</p>
+                <p>Your email address <strong>{email}</strong> needs to be verified before you can log in.</p>
                 <p>Please check your inbox and click the verification link, or use the OTP option below.</p>
                 
                 <div className={styles.verificationButtons}>
