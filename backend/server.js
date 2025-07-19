@@ -10,8 +10,16 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
+  origin: [
+    'http://localhost:3000',
+    'https://quickvacancy-job-portal-1.onrender.com',
+    'https://quickvacancy-consultancy.netlify.app',
+    'https://quickvacancy-consultancy.web.app',
+    'https://quickvacancy-consultancy.firebaseapp.com'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 

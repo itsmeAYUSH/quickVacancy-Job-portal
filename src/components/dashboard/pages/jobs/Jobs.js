@@ -11,7 +11,7 @@ export const Jobs = () => {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/jobs");
+      const response = await axios.get("https://quickvacancy-job-portal-1.onrender.com/api/jobs");
       if (response.status === 200 && response.data.jobs) {
         setJobs(response.data.jobs);
       } else {

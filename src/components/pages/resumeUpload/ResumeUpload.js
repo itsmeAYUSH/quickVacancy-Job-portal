@@ -133,7 +133,7 @@ export const ResumeUpload = () => {
         }
 
         const response = await axios.post(
-          "http://localhost:5000/api/candidate/uploadResume",
+          "https://quickvacancy-job-portal-1.onrender.com/api/candidate/uploadResume",
           formDataToSend,
           {
             headers: {

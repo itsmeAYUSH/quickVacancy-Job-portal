@@ -65,7 +65,7 @@ const PostJob = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/jobs", job);
+      await axios.post("https://quickvacancy-job-portal-1.onrender.com/api/jobs", job);
       setSuccess("Job posted successfully!");
       setError(null);
       setJob({

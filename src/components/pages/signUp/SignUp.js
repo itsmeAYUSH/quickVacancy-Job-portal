@@ -8,9 +8,18 @@ import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, setDoc } from "firebase/firestore";
 
 // Backend API endpoints
-const SMS_API_ENDPOINT = 'http://localhost:5000/api/send-sms';
-const EMAIL_OTP_API_ENDPOINT = 'http://localhost:5000/api/send-email-otp';
-const VERIFY_EMAIL_OTP_API_ENDPOINT = 'http://localhost:5000/api/verify-email-otp';
+const getApiBaseUrl = () => {
+  // Check if we're in development
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return 'http://localhost:5000';
+  }
+  // Production - use Render backend
+  return 'https://quickvacancy-job-portal-1.onrender.com';
+};
+
+const SMS_API_ENDPOINT = `${getApiBaseUrl()}/api/send-sms`;
+const EMAIL_OTP_API_ENDPOINT = `${getApiBaseUrl()}/api/send-email-otp`;
+const VERIFY_EMAIL_OTP_API_ENDPOINT = `${getApiBaseUrl()}/api/verify-email-otp`;
 
 export const SignUpEmployee = () => {
   return <SignUpForm userType="employee" />;
@@ -68,6 +77,7 @@ const SignUpForm = ({ userType }) => {
 
   const sendEmailOtp = async (emailAddress) => {
     try {
+      console.log('Sending OTP to:', EMAIL_OTP_API_ENDPOINT);
       const response = await fetch(EMAIL_OTP_API_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -78,14 +88,22 @@ const SignUpForm = ({ userType }) => {
         })
       });
 
+      console.log('Response status:', response.status);
+
       if (!response.ok) {
-        throw new Error('Failed to send email OTP');
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        throw new Error(`Failed to send email OTP: ${response.status} ${response.statusText}`);
       }
 
       const result = await response.json();
+      console.log('OTP response:', result);
       return result.success;
     } catch (error) {
       console.error('Error sending email OTP:', error);
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        throw new Error('Network error: Unable to connect to server. Please check your internet connection.');
+      }
       throw error;
     }
   };

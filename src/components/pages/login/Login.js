@@ -8,8 +8,17 @@ import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 
 // Backend API endpoints
-const EMAIL_OTP_API_ENDPOINT = 'http://localhost:5000/api/send-email-otp';
-const VERIFY_EMAIL_OTP_API_ENDPOINT = 'http://localhost:5000/api/verify-email-otp';
+const getApiBaseUrl = () => {
+  // Check if we're in development
+  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+    return 'http://localhost:5000';
+  }
+  // Production - use Render backend
+  return 'https://quickvacancy-job-portal-1.onrender.com';
+};
+
+const EMAIL_OTP_API_ENDPOINT = `${getApiBaseUrl()}/api/send-email-otp`;
+const VERIFY_EMAIL_OTP_API_ENDPOINT = `${getApiBaseUrl()}/api/verify-email-otp`;
 
 // Export two login components
 export const LoginEmployee = () => <LoginForm userType="employee" />;
@@ -31,6 +40,7 @@ const LoginForm = ({ userType }) => {
 
   const sendEmailOtp = async (emailAddress) => {
     try {
+      console.log('Sending OTP to:', EMAIL_OTP_API_ENDPOINT);
       const response = await fetch(EMAIL_OTP_API_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -41,14 +51,23 @@ const LoginForm = ({ userType }) => {
         })
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
       if (!response.ok) {
-        throw new Error('Failed to send email OTP');
+        const errorText = await response.text();
+        console.error('Response error:', errorText);
+        throw new Error(`Failed to send email OTP: ${response.status} ${response.statusText}`);
       }
 
       const result = await response.json();
+      console.log('OTP response:', result);
       return result.success;
     } catch (error) {
       console.error('Error sending email OTP:', error);
+      if (error.name === 'TypeError' && error.message.includes('fetch')) {
+        throw new Error('Network error: Unable to connect to server. Please check your internet connection.');
+      }
       throw error;
     }
   };
@@ -123,6 +142,24 @@ const LoginForm = ({ userType }) => {
     setErrorMessage("");
 
     try {
+      // First check if backend is accessible
+      const healthCheckUrl = `${getApiBaseUrl()}/api/health`;
+      console.log('Checking backend health at:', healthCheckUrl);
+      
+      try {
+        const healthResponse = await fetch(healthCheckUrl);
+        console.log('Health check status:', healthResponse.status);
+        if (!healthResponse.ok) {
+          throw new Error(`Backend health check failed: ${healthResponse.status}`);
+        }
+        const healthData = await healthResponse.json();
+        console.log('Backend health:', healthData);
+      } catch (healthError) {
+        console.error('Health check failed:', healthError);
+        setErrorMessage('Backend server is not accessible. Please try again later.');
+        return;
+      }
+
       const emailOtpSent = await sendEmailOtp(email);
       
       if (emailOtpSent) {
