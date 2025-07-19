@@ -1,20 +1,24 @@
 {
-  "name": "backend",
+  "name": "quickvacancy-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Backend API for QuickVacancy job portal",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Backend build completed'",
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
+  "keywords": ["job-portal", "api", "backend"],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
-    "mongoose": "^8.16.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.1",
     "nodemailer": "^7.0.5",
-    "twilio": "^5.7.3"
+    "twilio": "^4.19.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

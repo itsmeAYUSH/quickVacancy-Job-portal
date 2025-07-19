@@ -13,8 +13,8 @@ const getApiBaseUrl = () => {
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     return 'http://localhost:5000';
   }
-  // Production - use Render backend
-  return 'https://quickvacancy-job-portal-1.onrender.com';
+  // Production - use environment variable or default Render backend
+  return process.env.REACT_APP_API_URL || 'https://quickvacancy-job-portal-1.onrender.com';
 };
 
 const SMS_API_ENDPOINT = `${getApiBaseUrl()}/api/send-sms`;
