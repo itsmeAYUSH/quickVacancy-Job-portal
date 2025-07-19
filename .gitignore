@@ -38,9 +38,11 @@ pids
 # Coverage directory used by tools like istanbul
 coverage/
 
-# Frontend specific (exclude from backend deployment)
-src/
-public/
+# Backend specific
+backend/node_modules/
+backend/.env
+
+# Firebase
+.firebase/
 firebase.json
 .firebaserc
-.firebase/
