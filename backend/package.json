@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'Backend build completed'",
+    "build": "echo 'Dependencies installed'",
     "dev": "nodemon server.js"
   },
   "keywords": ["job-portal", "api", "backend"],
