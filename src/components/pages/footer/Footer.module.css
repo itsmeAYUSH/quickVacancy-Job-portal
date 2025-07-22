@@ -32,4 +32,40 @@
     margin: 0 10px;
     color: #fff; /* Color of the separator */
   }
+
+@media (max-width: 900px) {
+  .buttonGroup {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .buttonRow {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .buttonGroup {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  .buttonRow {
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}
   

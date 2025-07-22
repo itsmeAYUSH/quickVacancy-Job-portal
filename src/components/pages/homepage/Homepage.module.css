@@ -102,3 +102,69 @@
 .searchButton:hover {
   background: #002244;
 }
+
+@media (max-width: 900px) {
+  .title {
+    padding: 15vh 5vw 3vh;
+    font-size: 22px;
+  }
+  .searchBarContainer {
+    flex-direction: column;
+    gap: 8px;
+    width: 95%;
+    padding: 8px;
+  }
+  .searchInput,
+  .locationInput,
+  .experienceDropdown {
+    width: 100%;
+    font-size: 13px;
+  }
+  .searchButton {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .titleButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .but1, .but2 {
+    width: 100%;
+    margin-left: 0;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    padding: 10vh 2vw 2vh;
+    font-size: 18px;
+  }
+  .searchBarContainer {
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    padding: 5px;
+  }
+  .searchInput,
+  .locationInput,
+  .experienceDropdown {
+    width: 100%;
+    font-size: 12px;
+  }
+  .searchButton {
+    width: 100%;
+    font-size: 13px;
+  }
+  .titleButtons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .moreOptions {
+    margin-top: 40px;
+    font-size: 13px;
+  }
+}

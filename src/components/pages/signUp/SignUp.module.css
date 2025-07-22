@@ -308,3 +308,51 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: 900px) {
+  .signupContainer {
+    width: 98%;
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .signupTitle {
+    font-size: 1.3rem;
+    margin-top: 60px;
+  }
+  .formRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .formGroup {
+    width: 100%;
+  }
+  .postJobButton, .toggleButton {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .signupContainer {
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+  }
+  .signupTitle {
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
+  .formRow {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .formGroup {
+    width: 100%;
+  }
+  .postJobButton, .toggleButton {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+}

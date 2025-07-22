@@ -45,3 +45,48 @@
   display: block;
   margin: 20px auto 0 auto;
 }
+
+@media (max-width: 900px) {
+  .companyProfileContainer {
+    height: auto;
+    padding: 20px 0;
+  }
+  .formContainer {
+    width: 95%;
+    padding: 20px;
+  }
+  .formGroup {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .formGroup input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+  .saveButton {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .companyProfileContainer {
+    height: auto;
+    padding: 10px 0;
+  }
+  .formContainer {
+    width: 100%;
+    padding: 10px;
+  }
+  .formGroup input {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+  .saveButton {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}

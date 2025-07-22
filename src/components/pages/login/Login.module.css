@@ -394,3 +394,44 @@
     padding: 15px 20px 0px 20px;
   }
 }
+
+@media (max-width: 900px) {
+  .mainContentContainer {
+    flex-direction: column;
+    padding: 20px 5vw 0 5vw;
+    margin-top: 100px;
+  }
+  .mainContent {
+    flex-direction: column;
+    padding: 20px 0;
+  }
+  .imageContainer, .loginContainer {
+    width: 100%;
+    max-width: 100vw;
+    margin-bottom: 20px;
+  }
+  .loginContainer {
+    padding: 15px 10px 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainContentContainer {
+    padding: 10px 2vw 0 2vw;
+    margin-top: 60px;
+  }
+  .mainContent {
+    padding: 10px 0;
+  }
+  .image {
+    max-width: 100vw;
+    border-radius: 15px;
+  }
+  .loginTitle {
+    font-size: 1.2rem;
+  }
+  .formGroup input {
+    font-size: 0.95rem;
+    padding-block: 8px;
+  }
+}

@@ -4,6 +4,7 @@ import Header from "../../../../layout/header/Header";
 import styles from "./HrConsulting.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { motion } from "framer-motion";
 
 
 export const HrConsulting = () => {
@@ -16,16 +17,21 @@ export const HrConsulting = () => {
       handleNavigation("/");
     };
   return (
-    <div
-      className={styles.header}
-      style={{
-        backgroundImage: 'url("/images/Group 21.jpg")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        height: "100vh",
-      }}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
     >
+      <div
+        className={styles.header}
+        style={{
+          backgroundImage: 'url("/images/Group 21.jpg")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "100vh",
+        }}
+      >
         <Header backgroundColor="#04310E"></Header>
         <Navbar color="#04310E"></Navbar>
       <div className={styles.content}>
@@ -75,5 +81,6 @@ export const HrConsulting = () => {
         </p>
       </div>
     </div>
+    </motion.div>
   );
 };

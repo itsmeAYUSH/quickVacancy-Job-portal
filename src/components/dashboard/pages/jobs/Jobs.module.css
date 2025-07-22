@@ -62,4 +62,39 @@
   .repostButton {
     background-color: #F36E0D;
   }
+
+@media (max-width: 900px) {
+  .jobContainer {
+    height: auto;
+    padding: 20px 0;
+  }
+  .tableContainer {
+    width: 98%;
+    padding: 20px;
+  }
+  .table {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .jobContainer {
+    height: auto;
+    padding: 10px 0;
+  }
+  .tableContainer {
+    width: 100%;
+    padding: 8px;
+    overflow-x: auto;
+  }
+  .table {
+    font-size: 0.9rem;
+    min-width: 600px;
+  }
+  .editButton, .closeButton, .repostButton {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+}
   

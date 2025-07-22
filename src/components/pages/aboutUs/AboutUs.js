@@ -3,6 +3,7 @@ import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import styles from "./AboutUs.module.css";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const AboutUs = () => {
   const navigate = useNavigate();
@@ -11,7 +12,10 @@ export const AboutUs = () => {
     navigate("/about-us/vision&Mission");
   };
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
         backgroundImage: 'url("/images/Group 69.svg")',
@@ -65,13 +69,17 @@ export const AboutUs = () => {
         {/* Browse more options regarding consultancy */}
         View Our Vision & Our Mission
         <br></br>
-        <button className={styles.optionButton}>
+        <motion.button
+          className={styles.optionButton}
+          whileHover={{ scale: 1.1, rotate: 8 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <img
             onClick={missionVisionClickHandler}
             src="./images/arrow-downOrange.png"
             alt="background-image"
           ></img>
-        </button>
+        </motion.button>
       </div>
 
       {/* <div className={styles.moreOptions}>
@@ -81,6 +89,6 @@ export const AboutUs = () => {
           <img src="./images/arrow-down.png" alt="icon"></img>
         </button>
       </div> */}
-    </div>
+    </motion.div>
   );
 };

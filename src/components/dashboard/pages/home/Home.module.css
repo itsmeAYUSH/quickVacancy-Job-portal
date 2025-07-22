@@ -51,4 +51,44 @@
     height: auto;
     border-radius: 10px;
   }
+
+@media (max-width: 900px) {
+  .statsCard {
+    flex-direction: column;
+    width: 95%;
+    min-height: 200px;
+    padding: 15px;
+  }
+  .statsText, .imageContainer {
+    width: 100%;
+    text-align: center;
+  }
+  .imageContainer img {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .homeContainer {
+    height: auto;
+    padding: 10px 0;
+  }
+  .statsCard {
+    flex-direction: column;
+    width: 100%;
+    min-height: 120px;
+    padding: 8px;
+  }
+  .statsText h2, .statsText h3 {
+    font-size: 1.1rem;
+  }
+  .statsText ul li {
+    font-size: 0.95rem;
+  }
+  .imageContainer img {
+    width: 100%;
+    border-radius: 8px;
+  }
+}
   

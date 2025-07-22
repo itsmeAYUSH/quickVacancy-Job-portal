@@ -40,3 +40,29 @@
   cursor: pointer;
   height: 20px;
 }
+
+@media (max-width: 900px) {
+  .container {
+    height: auto;
+    padding: 20px 0;
+    width: 98vw;
+  }
+  .button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    height: auto;
+    padding: 10px 0;
+    width: 100vw;
+  }
+  .button {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}

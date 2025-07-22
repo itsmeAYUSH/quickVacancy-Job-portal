@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
+import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
-    <div
+    <motion.div
       className={styles.header}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       style={{
         backgroundImage: 'url("/images/handshake.svg")',
         backgroundSize: "cover",
@@ -14,7 +18,12 @@ export const Footer = () => {
         height: "100vh",
       }}
     >
-      <div className={styles.buttonGroup}>
+      <motion.div
+        className={styles.buttonGroup}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+      >
         <div className={styles.buttonRow}>
           <Link to="/privacy-policy">
             <button>Privacy Policy</button>
@@ -31,7 +40,7 @@ export const Footer = () => {
           <span className={styles.separator}>|</span>
           <button>Payment</button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };

@@ -6,6 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, setDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
 
 // Backend API endpoints
 const getApiBaseUrl = () => {
@@ -459,15 +460,25 @@ const SignUpForm = ({ userType }) => {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={styles.signupContainer}
+    >
       <Header backgroundColor="#0D4470" />
       <Navbar color="#0D4470" />
-      <div className={styles.signupContainer}>
+      <motion.form
+        className={styles.signupForm}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+      >
         <h2 className={styles.signupTitle}>Sign up ({userType})</h2>
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
         
         {!emailVerificationSent ? (
-          <form className={styles.signupForm} onSubmit={handleSubmit}>
+          <>
             <div className={styles.formGroup}>
               <label htmlFor="name">Your name</label>
               <input
@@ -567,14 +578,16 @@ const SignUpForm = ({ userType }) => {
                 required
               />
             </div>
-            <button
+            <motion.button
               className={styles.postJobButton}
               type="submit"
               disabled={loading}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
             >
               {loading ? "Signing Up..." : "Sign Up"}
-            </button>
-          </form>
+            </motion.button>
+          </>
         ) : (
           <div className={styles.verificationContainer}>
             <h3>Email Verification Required</h3>
@@ -622,7 +635,7 @@ const SignUpForm = ({ userType }) => {
         <button onClick={handleToggleUserType} className={styles.toggleButton}>
           Switch to {userType === "employee" ? "Employer" : "Employee"} Sign Up
         </button>
-      </div>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };

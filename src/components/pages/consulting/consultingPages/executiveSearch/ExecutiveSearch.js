@@ -4,6 +4,7 @@ import Header from "../../../../layout/header/Header";
 import { Navbar } from "../../../../layout/navbar/Navbar";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { motion } from "framer-motion";
 
 
 export const ExecutiveSearch = () => {
@@ -16,7 +17,11 @@ export const ExecutiveSearch = () => {
       handleNavigation("/");
     };
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <div
         className={styles.header}
         style={{
@@ -46,6 +51,6 @@ export const ExecutiveSearch = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -6,6 +6,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "firebase/auth";
 import { auth, db } from "../../fireBaseConfig/FireBaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
 
 // Backend API endpoints
 const getApiBaseUrl = () => {
@@ -314,12 +315,22 @@ const LoginForm = ({ userType }) => {
   }
 
   return (
-    <div className={styles.dashboardContainer}>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={styles.dashboardContainer}
+    >
       <Header backgroundColor="#0D4470" />
       <Navbar color="#0D4470" />
       <div className={styles.mainContentContainer}>
         <div className={styles.mainContent}>
-          <div className={styles.imageContainer}>
+          <motion.div
+            className={styles.imageContainer}
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
+          >
             <img
               src="/images/creative-people-working-office 1.png"
               alt="Office team"
@@ -332,9 +343,13 @@ const LoginForm = ({ userType }) => {
                 className={styles.logo}
               />
             </div>
-          </div>
-
-          <div className={styles.loginContainer}>
+          </motion.div>
+          <motion.div
+            className={styles.loginContainer}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+          >
             <h2 className={styles.loginTitle}>Welcome Back</h2>
             <h3>{userType === "employee" ? "Employee Login" : "Employer Login"}</h3>
             {errorMessage && <p className={styles.error}>{errorMessage}</p>}
@@ -374,14 +389,14 @@ const LoginForm = ({ userType }) => {
                     </div>
                   </div>
                 </div>
-                <button
+                <motion.button
                   type="submit"
                   className={styles.loginButton}
                   disabled={loading}
                 >
                   {loading ? "Logging in..." : "Login"}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
                   type="button"
                   className={styles.loginButton}
                   style={{ marginTop: 10, background: '#4285F4', color: 'white' }}
@@ -389,7 +404,7 @@ const LoginForm = ({ userType }) => {
                   disabled={loading}
                 >
                   {loading ? "Signing in with Google..." : "Login with Google"}
-                </button>
+                </motion.button>
               </form>
             ) : (
               <div className={styles.verificationContainer}>
@@ -501,9 +516,9 @@ const LoginForm = ({ userType }) => {
             <p style={{ marginTop: "30px" }}>
               No account? <Link to={userType === "employee" ? "/sign-up/employee" : "/sign-up/employer"}>Create one</Link>
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

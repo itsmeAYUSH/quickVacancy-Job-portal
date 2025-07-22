@@ -27,7 +27,10 @@ export const Consulting = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
         backgroundImage: 'url("/images/consulting.svg")',
@@ -301,6 +304,6 @@ export const Consulting = () => {
           </foreignObject>
         </svg>
       </div>
-    </div>
+    </motion.div>
   );
 };

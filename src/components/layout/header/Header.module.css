@@ -65,6 +65,10 @@
   left: 0; /* Position at the left */
   right: 0; /* Position at the right */
   z-index: 1000; /* Ensure the header is above other content */
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .logo_image {
@@ -109,4 +113,191 @@
 
   border: none;
   cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+.hamburgerBar {
+  width: 28px;
+  height: 3px;
+  background: #0d4470;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.menuOpen {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  background: #fff;
+  z-index: 1050;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 20px 0 10px 0;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.menu,
+.menuOpen {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .menu,
+  .menuOpen {
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+  }
+  .logo_image {
+    max-height: 50px;
+  }
+  .socials {
+    position: static;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .socialButtons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .hamburger {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    right: auto;
+    top: 18px;
+    z-index: 1200;
+  }
+  .menu {
+    display: none;
+  }
+  .menu.menuOpen {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 16px;
+    width: 90vw;
+    max-width: 340px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 16px 0 8px 0;
+    z-index: 1100;
+    animation: fadeIn 0.3s;
+    align-items: stretch;
+  }
+  .socials, .socialButtons {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    margin: 0 18px;
+  }
+  .socialButtons button, .socialsIcon {
+    width: 100%;
+    margin: 0 0 6px 0;
+    text-align: left;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .socials {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 5px 0;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  .menuOpen {
+    top: 46px;
+    padding: 10px 0 6px 0;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+  }
+  .logo_image {
+    max-height: 36px;
+  }
+  .socials {
+    position: static;
+    flex-direction: row;
+    gap: 6px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+  .socialButtons {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .hamburger {
+    width: 32px;
+    height: 32px;
+    right: 10px;
+    top: 10px;
+  }
+  .menu.menuOpen {
+    top: 46px;
+    left: 8px;
+    width: 94vw;
+    max-width: 320px;
+    padding: 10px 0 6px 0;
+  }
+  .socialButtons button, .socialsIcon {
+    font-size: 0.98rem;
+    padding: 9px 10px;
+  }
 }

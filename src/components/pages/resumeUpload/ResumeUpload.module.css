@@ -210,3 +210,52 @@
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
+@media (max-width: 900px) {
+  .enterDetails {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .dragAndDrop, .credentials {
+    width: 100%;
+    margin-inline: 0;
+    height: auto;
+    min-height: 180px;
+  }
+  .container {
+    width: 98vw;
+    height: auto;
+    padding: 10px;
+  }
+  .verticalLine {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .enterDetails {
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .dragAndDrop, .credentials {
+    width: 100%;
+    margin-inline: 0;
+    height: auto;
+    min-height: 120px;
+  }
+  .container {
+    width: 100vw;
+    height: auto;
+    padding: 5px;
+  }
+  .verticalLine {
+    display: none;
+  }
+  .inputField, .uploadButton {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 8px 0;
+  }
+}
+

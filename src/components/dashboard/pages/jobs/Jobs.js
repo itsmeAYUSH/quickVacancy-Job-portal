@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Jobs.module.css";
+import { motion } from "framer-motion";
 
 export const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -34,42 +35,53 @@ export const Jobs = () => {
   // };
 
   if (loading) {
-    return <div>Loading jobs...</div>;
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>Loading jobs...</motion.div>;
   }
 
   if (error) {
-    return <div>Error fetching jobs: {error}</div>;
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>Error fetching jobs: {error}</motion.div>;
   }
 
   return (
-    <div className={styles.jobContainer}>
-      <div className={styles.tableContainer}>
-        <h2 className={styles.title}>Manage Jobs</h2>
-        <div className={styles.filterOptions}>
-          Filter - All / Active / Expired
-        </div>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Job Title</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {jobs.map((job) => (
-              <tr key={job._id}>
-                <td>{job.title}</td>
-                <td>{job.status}</td>
-                <td>
-                  <button className={styles.editButton}>Edit</button>
-                  <button className={styles.closeButton}>Close</button>
-                </td>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
+      <div className={styles.jobContainer}>
+        <div className={styles.tableContainer}>
+          <h2 className={styles.title}>Manage Jobs</h2>
+          <div className={styles.filterOptions}>
+            Filter - All / Active / Expired
+          </div>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Job Title</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {jobs.map((job) => (
+                <motion.tr
+                  key={job._id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: jobs.indexOf(job) * 0.1 }}
+                >
+                  <td>{job.title}</td>
+                  <td>{job.status}</td>
+                  <td>
+                    <button className={styles.editButton}>Edit</button>
+                    <button className={styles.closeButton}>Close</button>
+                  </td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

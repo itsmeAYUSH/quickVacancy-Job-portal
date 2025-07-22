@@ -6,6 +6,7 @@ import Pagination from "@mui/material/Pagination";
 import { Box } from "@mui/material";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const TermsAndConditions = () => {
   const navigate = useNavigate();
@@ -23,8 +24,11 @@ export const TermsAndConditions = () => {
   };
 
   return (
-    <div
+    <motion.div
       className={styles.header}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       style={{
         backgroundImage: 'url("/images/Group 31.jpg")',
         backgroundSize: "cover",
@@ -258,6 +262,6 @@ export const TermsAndConditions = () => {
           />
         </Box>
       </div>
-    </div>
+    </motion.div>
   );
 };

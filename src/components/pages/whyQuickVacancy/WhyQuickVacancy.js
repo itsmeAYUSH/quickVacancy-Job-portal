@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./WhyQuickVacancy.module.css";
+import { motion } from "framer-motion";
 
 export const WhyQuickVacancy = () => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
         backgroundImage: 'url("/images/WhyQuickVacancyConsultancy.svg")',
@@ -14,10 +18,14 @@ export const WhyQuickVacancy = () => {
       }}
     >
       <div className={styles.content}>
-        <img
+        <motion.img
           className={styles.image}
           src="images/WhyQuickVacancyConsultancy2.jpg"
           alt="GroupImage"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
+          whileHover={{ scale: 1.05, rotate: 2 }}
         />
         <div className={styles.aboutUsText}>
           <h3 className={styles.aboutUsTitle}>Why Quick Vacancy Consulting</h3>
@@ -36,6 +44,6 @@ export const WhyQuickVacancy = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

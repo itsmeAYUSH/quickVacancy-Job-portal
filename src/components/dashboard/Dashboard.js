@@ -8,6 +8,7 @@ import { Jobs } from "./pages/jobs/Jobs";
 import { Profile } from "./pages/profile/Profile";
 import { Settings } from "./pages/settings/Settings";
 import PostJob from "./pages/postJob/PostJob";
+import { motion } from "framer-motion";
 
 export const Dashboard = () => {
   const [activeComponent, setActiveComponent] = useState("Home");
@@ -30,7 +31,12 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className={styles.dashboardContainer}>
+    <motion.div
+      className={styles.dashboardContainer}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <Header backgroundColor="#0D4470" />
       <Navbar color="#0D4470" />
       <div className={styles.mainContent}>
@@ -40,6 +46,6 @@ export const Dashboard = () => {
           <div className={styles.centeredComponent}>{renderComponent()}</div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

@@ -3,6 +3,7 @@ import Header from "../../layout/header/Header";
 import { Navbar } from "../../layout/navbar/Navbar";
 import styles from "./ResumeUpload.module.css";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 export const ResumeUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -165,7 +166,10 @@ export const ResumeUpload = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       style={{
         backgroundImage: 'url("/images/Group 33.jpg")',
         backgroundSize: "cover",
@@ -180,16 +184,28 @@ export const ResumeUpload = () => {
         <div className={styles.container}>
           {!isSubmitted ? (
             <>
-              <div className={styles.title}>Upload Your Resume.</div>
-              <div className={styles.enterDetails}>
-                <div
-                  className={`${styles.dragAndDrop} ${
-                    dragging ? styles.dragging : ""
-                  }`}
+              <motion.div
+                className={styles.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+              >
+                Upload Your Resume.
+              </motion.div>
+              <motion.div
+                className={styles.enterDetails}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+              >
+                <motion.div
+                  className={`${styles.dragAndDrop} ${dragging ? styles.dragging : ""}`}
                   onDrop={handleDrop}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   onClick={handleClick}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <input
                     type="file"
@@ -239,7 +255,7 @@ export const ResumeUpload = () => {
                   {fileErrors && (
                     <p className={styles.errorText}>{fileErrors}</p>
                   )}
-                </div>
+                </motion.div>
 
                 <div className={styles.verticalLine}></div>
 
@@ -329,19 +345,24 @@ export const ResumeUpload = () => {
                     </div>
                   </form>
                 </div>
-              </div>
+              </motion.div>
             </>
           ) : (
-            <div className={styles.thankYouMessage}>
+            <motion.div
+              className={styles.thankYouMessage}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               <img src="./images/resumeUploadSuccess.png" alt="Success" />
               <h2>Thank you for submitting your resume.</h2>
               <p>
                 We will review your application and get back to you shortly.
               </p>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
