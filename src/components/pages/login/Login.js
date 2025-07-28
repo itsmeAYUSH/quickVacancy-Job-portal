@@ -15,7 +15,16 @@ const getApiBaseUrl = () => {
     return 'http://localhost:5000';
   }
   // Production - use environment variable or default Render backend
-  return process.env.REACT_APP_API_URL || 'https://quickvacancy-job-portal-1.onrender.com';
+  let apiUrl = process.env.REACT_APP_API_URL || 'https://quickvacancy-job-portal-1.onrender.com';
+  
+  // Clean up the URL if it contains the full path
+  if (apiUrl.includes('/api/')) {
+    apiUrl = apiUrl.split('/api/')[0];
+  }
+  
+  console.log('API URL:', apiUrl);
+  console.log('Environment variable REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+  return apiUrl;
 };
 
 const EMAIL_OTP_API_ENDPOINT = `${getApiBaseUrl()}/api/send-email-otp`;

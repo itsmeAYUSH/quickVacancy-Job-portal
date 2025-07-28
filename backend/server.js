@@ -13,9 +13,10 @@ app.use(cors({
   origin: [
     'http://localhost:3000',
     'https://quickvacancy-job-portal-1.onrender.com',
-    'https://quickvacancy-consultancy.netlify.app',
-    'https://quickvacancy-consultancy.web.app',
-    'https://quickvacancy-consultancy.firebaseapp.com'
+    // 'https://quickvacancy-consultancy.netlify.app',
+    // 'https://quickvacancy-consultancy.web.app',
+    // 'https://quickvacancy-consultancy.firebaseapp.com',
+    'https://quickvacancyconsultany.netlify.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
