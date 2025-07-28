@@ -17,9 +17,14 @@ const getApiBaseUrl = () => {
   // Production - use environment variable or default Render backend
   let apiUrl = process.env.REACT_APP_API_URL || 'https://quickvacancy-job-portal-1.onrender.com';
   
-  // Clean up the URL if it contains the full path
+  // Clean up the URL if it contains the full path or key-value format
   if (apiUrl.includes('/api/')) {
     apiUrl = apiUrl.split('/api/')[0];
+  }
+  
+  // Handle case where env var is set as "KEY=value" format
+  if (apiUrl.includes('REACT_APP_API_URL=')) {
+    apiUrl = apiUrl.split('REACT_APP_API_URL=')[1];
   }
   
   console.log('API URL:', apiUrl);
