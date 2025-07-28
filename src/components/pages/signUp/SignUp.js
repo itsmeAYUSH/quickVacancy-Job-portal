@@ -314,7 +314,7 @@ const SignUpForm = ({ userType }) => {
     }
   };
 
-  const handleSubmit = async (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     setErrorMessage("");
@@ -382,7 +382,7 @@ const SignUpForm = ({ userType }) => {
         companyName: userType === "employer" ? companyName.trim() : "",
         email: email.trim(),
         phone: phone.trim(),
-        emailVerified: true,
+        emailVerified: false,
         createdAt: new Date()
       });
       
@@ -392,8 +392,7 @@ const SignUpForm = ({ userType }) => {
       await sendEmailVerification(user);
       console.log("Email verification sent");
       
-      setIsLoggedIn(true);
-      navigate("/");
+      setEmailVerificationSent(true);
     } catch (error) {
       console.error("Signup error:", error);
       
@@ -473,6 +472,7 @@ const SignUpForm = ({ userType }) => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+        onSubmit={handleFormSubmit}
       >
         <h2 className={styles.signupTitle}>Sign up ({userType})</h2>
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}

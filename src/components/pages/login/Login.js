@@ -121,7 +121,7 @@ const LoginForm = ({ userType }) => {
       // Set the user as logged in
       localStorage.setItem("userId", user.uid);
       setIsLoggedIn(true);
-      navigate("/");
+      navigate(userType === "employee" ? "/resume-upload" : "/Dashboard");
     } catch (error) {
       setErrorMessage(
         error.message.includes("user-not-found")
@@ -205,6 +205,7 @@ const LoginForm = ({ userType }) => {
         // Set the user as logged in
         localStorage.setItem("userId", email);
         setIsLoggedIn(true);
+        navigate(userType === "employee" ? "/resume-upload" : "/Dashboard");
       } else {
         setErrorMessage('Invalid email OTP. Please try again.');
       }
@@ -259,6 +260,7 @@ const LoginForm = ({ userType }) => {
         // Set the user as logged in
         localStorage.setItem("userId", email.uid);
         setIsLoggedIn(true);
+        navigate(userType === "employee" ? "/resume-upload" : "/Dashboard");
       } else {
         setErrorMessage("Email not verified yet. Please check your inbox and click the verification link.");
       }
@@ -283,7 +285,7 @@ const LoginForm = ({ userType }) => {
       if (userDoc.exists()) {
         localStorage.setItem("userId", user.uid);
         setIsLoggedIn(true);
-        navigate("/");
+        navigate(userType === "employee" ? "/resume-upload" : "/Dashboard");
       } else {
         // New Google user, prompt to confirm registration as this type
         if (!window.confirm(`No account found. Do you want to register as a ${userType}?`)) {
@@ -300,7 +302,7 @@ const LoginForm = ({ userType }) => {
         });
         localStorage.setItem("userId", user.uid);
         setIsLoggedIn(true);
-        navigate("/");
+        navigate(userType === "employee" ? "/resume-upload" : "/Dashboard");
       }
     } catch (error) {
       setErrorMessage("Google sign-in failed. Please try again.");
@@ -310,8 +312,8 @@ const LoginForm = ({ userType }) => {
   };
 
   if (isLoggedIn) {
-    // Redirect to dashboard based on userType
-    return <Navigate to={userType === "employee" ? "/employee-dashboard" : "/employer-dashboard"} replace />;
+    // Redirect based on userType
+    return <Navigate to={userType === "employee" ? "/resume-upload" : "/Dashboard"} replace />;
   }
 
   return (
