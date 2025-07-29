@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
+import { useInView } from "react-intersection-observer"; // Import useInView for intersection observer
 import styles from "./Consulting.module.css"; // Import the CSS Module
 
 export const Consulting = () => {
-  const [isVisible, setIsVisible] = useState(false); // State to control visibility
   const [hoveredText, setHoveredText] = useState(null); // State to track hovered text
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Trigger the animation when the component mounts
-    setIsVisible(true);
-  }, []);
+  // Use intersection observer to detect when the component is in view
+  const { ref: consultingRef, inView: isVisible } = useInView({
+    threshold: 0.3, // Trigger when 30% of the component is visible
+    triggerOnce: true, // Only trigger once when it comes into view
+  });
 
   // Function to handle mouse enter
   const handleMouseEnter = (text) => {
@@ -28,6 +29,7 @@ export const Consulting = () => {
 
   return (
     <motion.div
+      ref={consultingRef}
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -93,7 +95,7 @@ export const Consulting = () => {
                 backgroundColor:
                   hoveredText === "Resume Writing" ? "white" : "transparent",
                 color: hoveredText === "Resume Writing" ? "darkgreen" : "white",
-                padding: "10px",
+                // padding: "0px",
                 borderRadius: "5px",
                 display: "flex",
                 alignItems: "center",
@@ -140,7 +142,7 @@ export const Consulting = () => {
                     : "transparent",
                 color:
                   hoveredText === "Turnkey Recruitment" ? "darkgreen" : "white",
-                padding: "10px",
+                // padding: "10px",
                 borderRadius: "5px",
                 display: "flex",
                 alignItems: "center",
@@ -183,7 +185,7 @@ export const Consulting = () => {
                   hoveredText === "Executive Search" ? "white" : "transparent",
                 color:
                   hoveredText === "Executive Search" ? "darkgreen" : "white",
-                padding: "10px",
+                // padding: "10px",
                 borderRadius: "5px",
                 display: "flex",
                 alignItems: "center",
@@ -227,7 +229,7 @@ export const Consulting = () => {
                 backgroundColor:
                   hoveredText === "CXO Hiring" ? "white" : "transparent",
                 color: hoveredText === "CXO Hiring" ? "darkgreen" : "white",
-                padding: "10px",
+                // padding: "10px",
                 borderRadius: "5px",
                 display: "flex",
                 alignItems: "center",
@@ -274,7 +276,7 @@ export const Consulting = () => {
                 backgroundColor:
                   hoveredText === "Human Resource" ? "white" : "transparent",
                 color: hoveredText === "Human Resource" ? "darkgreen" : "white",
-                padding: "10px",
+                // padding: "10px",
                 borderRadius: "5px",
                 display: "flex",
                 alignItems: "center",

@@ -4,9 +4,16 @@ import Header from "../../layout/header/Header";
 import styles from "./Homepage.module.css";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const Homepage = () => {
   const navigate = useNavigate();
+
+  // Use intersection observer to detect when the component is in view
+  const { ref: homepageRef, inView: isVisible } = useInView({
+    threshold: 0.3, // Trigger when 30% of the component is visible
+    triggerOnce: true, // Only trigger once when it comes into view
+  });
 
   const handleResumeUploadClick = () => {
     navigate("/resume-upload");
@@ -17,8 +24,9 @@ export const Homepage = () => {
 
   return (
     <motion.div
+      ref={homepageRef}
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
@@ -34,7 +42,7 @@ export const Homepage = () => {
       <motion.div
         className={styles.title}
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
       >
         <h2>

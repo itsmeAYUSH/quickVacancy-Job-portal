@@ -1,12 +1,20 @@
 import React from "react";
 import styles from "./WhyQuickVacancy.module.css";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const WhyQuickVacancy = () => {
+  // Use intersection observer to detect when the component is in view
+  const { ref: whyRef, inView: isVisible } = useInView({
+    threshold: 0.3, // Trigger when 30% of the component is visible
+    triggerOnce: true, // Only trigger once when it comes into view
+  });
+
   return (
     <motion.div
+      ref={whyRef}
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
@@ -23,7 +31,7 @@ export const WhyQuickVacancy = () => {
           src="images/WhyQuickVacancyConsultancy2.jpg"
           alt="GroupImage"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
           whileHover={{ scale: 1.05, rotate: 2 }}
         />

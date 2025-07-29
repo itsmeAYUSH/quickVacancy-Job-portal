@@ -4,17 +4,25 @@ import { Navbar } from "../../layout/navbar/Navbar";
 import styles from "./AboutUs.module.css";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const AboutUs = () => {
   const navigate = useNavigate();
+
+  // Use intersection observer to detect when the component is in view
+  const { ref: aboutRef, inView: isVisible } = useInView({
+    threshold: 0.3, // Trigger when 30% of the component is visible
+    triggerOnce: true, // Only trigger once when it comes into view
+  });
 
   const missionVisionClickHandler = () => {
     navigate("/about-us/vision&Mission");
   };
   return (
     <motion.div
+      ref={aboutRef}
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={styles.header}
       style={{
